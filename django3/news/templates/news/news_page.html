@@ -6,14 +6,17 @@
 
 
 {% block content %}
-<h1>это новостная страница</h1>
-{% for new in news %}
-	<div>
-		<h3> {{ new.title }} </h3>
-		<p> {{ new.short_descr }} </p>
-		<p> {{ new.content }} </p>
+	<h1>это новостная страница</h1>
+	{% if news %}
+		{% for new in news %}
+			<div>
+				<h3> {{ new.title }} </h3>
+				<p> {{ new.short_descr }} </p>
+				<p> {{ new.content }} </p>
 
-	</div>
-{% endfor %}
-
+			</div>
+		{% endfor %}
+	{% else %}
+		<h4>Новостей ещё нет.</h4>
+	{% endif %}
 {% endblock %}
