@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import news_posts
 from .models import news_posts
+from .forms import news_postsForm
 
 def home(request):
     # return HttpResponse("<h1>Это мой первый проект на Django</h1>")
@@ -9,5 +10,6 @@ def home(request):
     return render(request, 'news/news_page.html',{'news': news})
 
 def add_news(request):
+    form = news_postsForm()
     # return HttpResponse("<h1>Это мой первый проект на Django</h1>")
-    return render(request, 'news/create_news.html')
+    return render(request, 'news/create_news.html', {'form': form})
